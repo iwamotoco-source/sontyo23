@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>江ノ島旅行アプリをホーム画面に入れる</title>
+
+<!-- 本体と同じmanifest／アイコンを参照（名前とアイコンが正しく出る） -->
+<link rel="manifest" href="/sontyo23/manifest.json">
+<link rel="apple-touch-icon" href="/sontyo23/icon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/sontyo23/icon-512.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="江ノ島旅行">
+<meta name="theme-color" content="#0e1116">
+
+<!-- ★ホーム画面から起動された場合は本体へ即リダイレクト（描画前に実行） -->
+<script>
+(function(){
+  var st = window.navigator.standalone === true ||
+           (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+           (window.matchMedia && window.matchMedia('(display-mode: fullscreen)').matches);
+  if (st) { location.replace('./'); }
+})();
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1014; --card:#171c22; --card2:#1f262e; --line:#2b333d;
+  --ink:#f4f1ea; --sub:#9aa5b1; --gold:#f5c451; --gold-d:#c99320;
+  --sea:#4fc0da; --pink:#ff8fa3; --r:20px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:'M PLUS Rounded 1c',system-ui,-apple-system,'Hiragino Kaku Gothic ProN',sans-serif;
+  background:
+    radial-gradient(700px 380px at 50% -120px,rgba(245,196,81,.22),rgba(245,196,81,0) 70%),
+    radial-gradient(600px 400px at 90% 110%,rgba(79,192,218,.14),transparent 70%),
+    var(--bg);
+  color:var(--ink); line-height:1.7; min-height:100vh;
+  padding:0 0 calc(40px + env(safe-area-inset-bottom));
+}
+.wrap{max-width:520px;margin:0 auto;padding:0 18px}
+header{padding:34px 0 8px;text-align:center}
+.icon{
+  width:104px;height:104px;margin:0 auto 14px;border-radius:24px;overflow:hidden;
+  box-shadow:0 14px 34px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);
+  background:#000;animation:pop .7s cubic-bezier(.2,1.4,.4,1) both;
+}
+.icon img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes pop{from{opacity:0;transform:scale(.7) translateY(14px)}to{opacity:1;transform:none}}
+h1{margin:0;font-size:23px;font-weight:800;letter-spacing:.01em}
+h1 em{font-style:normal;color:var(--gold)}
+.lead{color:var(--sub);font-size:13.5px;margin-top:8px}
+.badge{
+  display:inline-block;margin-top:14px;padding:6px 15px;border-radius:999px;font-size:12px;font-weight:800;
+  background:linear-gradient(120deg,var(--gold),#ffe6a3);color:#3b2a05;
+  box-shadow:0 4px 14px rgba(245,196,81,.28)
+}
+.card{
+  background:linear-gradient(180deg,var(--card),#131820);
+  border:1px solid var(--line);border-radius:var(--r);padding:18px;margin:16px 0;
+  box-shadow:0 10px 26px rgba(0,0,0,.35)
+}
+.sect{font-size:12px;font-weight:800;color:var(--gold);letter-spacing:.12em;margin:0 0 12px}
+.step{display:flex;gap:13px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border:none;padding-bottom:0}
+.no{
+  flex:none;width:30px;height:30px;border-radius:11px;display:grid;place-items:center;
+  font-weight:800;font-size:14px;background:var(--card2);border:1px solid var(--line);color:var(--gold)
+}
+.st{font-weight:700;font-size:15px}
+.sd{font-size:12.5px;color:var(--sub);margin-top:2px}
+.k{
+  display:inline-flex;align-items:center;gap:4px;background:#242c35;border:1px solid var(--line);
+  border-radius:8px;padding:1px 7px;font-size:12.5px;font-weight:700;color:var(--ink);margin:0 1px
+}
+.svg{width:14px;height:14px;fill:none;stroke:var(--sea);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.btn{
+  display:block;width:100%;text-align:center;text-decoration:none;border:none;font:inherit;
+  font-weight:800;font-size:15.5px;padding:15px;border-radius:16px;cursor:pointer;
+  background:linear-gradient(120deg,var(--gold-d),var(--gold));color:#2e2003;
+  box-shadow:0 8px 22px rgba(245,196,81,.25);margin-top:6px
+}
+.btn:active{transform:translateY(1px)}
+.btn.sub{background:var(--card2);color:var(--ink);border:1px solid var(--line);box-shadow:none;font-size:14px;padding:13px}
+.hide{display:none!important}
+.hint{
+  font-size:12.5px;color:var(--sub);background:#131a22;border:1px solid var(--line);
+  border-radius:12px;padding:10px 12px;margin-top:12px
+}
+.arrow{text-align:center;font-size:26px;color:var(--gold);animation:bob 1.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+.url{
+  font-size:12px;color:var(--sub);word-break:break-all;background:#101720;border:1px solid var(--line);
+  border-radius:10px;padding:9px 11px;margin-top:10px;font-family:ui-monospace,monospace
+}
+footer{text-align:center;font-size:11.5px;color:#6d7783;margin-top:26px;line-height:1.9}
+.warn{border-color:#5d3a3a;background:linear-gradient(180deg,#2a1b1b,#1a1214)}
+.warn .sect{color:var(--pink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="icon"><img src="/sontyo23/icon-192.png" alt="江ノ島旅行"></div>
+    <h1>『江ノ島旅行』を<br><em>ホーム画面</em>に入れよう</h1>
+    <p class="lead">ブックマークを探す旅は今日で終わり。<br>タップ1回で、しおり・地図・割り勘が開きます。</p>
+    <div class="badge">所要時間 約15秒・無料・容量ほぼゼロ</div>
+  </header>
+
+  <!-- アプリ内ブラウザ警告 -->
+  <div class="card warn hide" id="inapp">
+    <p class="sect">⚠️ ちょっと待って</p>
+    <div class="st">このブラウザだと追加できません</div>
+    <p class="sd">LINEやInstagramの中のブラウザで開いてるみたい。右下（または右上）のメニューから<span class="k">Safariで開く</span>／<span class="k">ブラウザで開く</span>を選んでから、もう一度このページに来てね。</p>
+    <button class="btn sub" id="copy2">このページのURLをコピーする</button>
+  </div>
+
+  <!-- iOS 手順 -->
+  <div class="card hide" id="ios">
+    <p class="sect">IPHONE / IPAD の手順</p>
+    <div class="step">
+      <div class="no">1</div>
+      <div><div class="st">画面の下にある
+        <span class="k"><svg class="svg" viewBox="0 0 24 24"><path d="M12 16V4m0 0L8 8m4-4 4 4"/><path d="M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/></svg>共有</span>
+        を押す</div>
+        <div class="sd">四角から矢印が飛び出してるアイコン。見つからない時は画面を軽く下に引っぱるとメニューが出ます。</div></div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div><div class="st">メニューを下にスクロールして<br><span class="k">ホーム画面に追加</span> を押す</div>
+        <div class="sd">けっこう下のほうにいます。粘って探してください。</div></div>
+    </div>
+    <div class="step">
+      <div class="no">3</div>
+      <div><div class="st">右上の <span class="k">追加</span> を押す</div>
+        <div class="sd">名前は「江ノ島旅行」のままでOK。ホーム画面に金色のアイコンが出たら完成です。</div></div>
+    </div>
+    <div class="arrow">↓</div>
+    <div class="hint">この案内ページから追加しても大丈夫。アイコンから開くと、ちゃんとアプリ本体が立ち上がるように作ってあります。</div>
+  </div>
+
+  <!-- Android 手順 -->
+  <div class="card hide" id="android">
+    <p class="sect">ANDROID の手順</p>
+    <button class="btn hide" id="install">この端末にインストールする</button>
+    <div class="step">
+      <div class="no">1</div>
+      <div><div class="st">右上の <span class="k">⋮</span> を押す</div>
+        <div class="sd">Chromeのメニューです。</div></div>
+    </div>
+    <div class="step">
+      <div class="no">2</div>
+      <div><div class="st"><span class="k">アプリをインストール</span> または<br><span class="k">ホーム画面に追加</span> を選ぶ</div>
+        <div class="sd">端末やChromeのバージョンで名前が少し違います。</div></div>
+    </div>
+    <div class="step">
+      <div class="no">3</div>
+      <div><div class="st"><span class="k">インストール</span> を押す</div>
+        <div class="sd">これで完了。アプリ一覧に江ノ島が住みます。</div></div>
+    </div>
+  </div>
+
+  <!-- PC 手順 -->
+  <div class="card hide" id="pc">
+    <p class="sect">PC の場合</p>
+    <div class="st">スマホで開くのがおすすめ</div>
+    <p class="sd">現地で使うアプリなので、スマホのカメラで下のURLを読み取るか、自分にリンクを送ってから追加してください。Chrome/Edgeならアドレスバー右の「インストール」アイコンからも入れられます。</p>
+    <div id="qr" style="text-align:center;margin-top:14px"></div>
+  </div>
+
+  <div class="card">
+    <p class="sect">追加せずに使う</p>
+    <a class="btn" href="./">アプリをそのまま開く</a>
+    <button class="btn sub" id="copy">アプリのURLをコピー</button>
+    <div class="url" id="urltext"></div>
+  </div>
+
+  <footer>
+    江ノ島合宿 2026 / 身内用<br>
+    追加できない人は幹事に泣きついてください。
+  </footer>
+</div>
+
+<script>
+(function(){
+  var ua = navigator.userAgent;
+  var appURL = location.origin + '/sontyo23/';
+  document.getElementById('urltext').textContent = appURL;
+
+  var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+  var inApp = /Line\/|FBAN|FBAV|Instagram|Twitter|MicroMessenger|TikTok/i.test(ua);
+
+  function show(id){ var el = document.getElementById(id); if(el) el.classList.remove('hide'); }
+
+  if (inApp) {
+    show('inapp');
+  } else if (isIOS) {
+    show('ios');
+  } else if (isAndroid) {
+    show('android');
+  } else {
+    show('pc');
+    var img = new Image();
+    img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=' + encodeURIComponent(appURL);
+    img.width = 200; img.height = 200; img.alt = 'QRコード';
+    img.style.borderRadius = '12px';
+    document.getElementById('qr').appendChild(img);
+  }
+
+  // Androidのインストールプロンプト
+  var deferred = null;
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault(); deferred = e;
+    var b = document.getElementById('install');
+    if (b) b.classList.remove('hide');
+  });
+  var ib = document.getElementById('install');
+  if (ib) ib.addEventListener('click', function(){
+    if (!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.then(function(){ deferred = null; ib.classList.add('hide'); });
+  });
+  window.addEventListener('appinstalled', function(){
+    if (ib) ib.classList.add('hide');
+  });
+
+  // URLコピー
+  function copyIt(btn, text){
+    btn.addEventListener('click', function(){
+      var done = function(){ var o = btn.textContent; btn.textContent = 'コピーしました！'; setTimeout(function(){ btn.textContent = o; }, 1600); };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(done, function(){ prompt('コピーしてください', text); });
+      } else { prompt('コピーしてください', text); }
+    });
+  }
+  copyIt(document.getElementById('copy'), appURL);
+  var c2 = document.getElementById('copy2');
+  if (c2) copyIt(c2, location.href);
+})();
+</script>
+</body>
+</html>
