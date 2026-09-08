@@ -1,0 +1,25 @@
+{
+  "name": "江ノ島旅行",
+  "short_name": "江ノ島旅行",
+  "description": "",
+  "start_url": "/sontyo23/",
+  "scope": "/sontyo23/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#fefb41",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/sontyo23/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/sontyo23/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
