@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#3aa7c4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -357,48 +357,57 @@ footer{text-align:center;color:var(--sub);font-size:11px;padding:22px 0 6px}
 #splash{--heroH:38vh;--runSec:9s;--flip:1}
 body.splash-lock{overflow:hidden!important}
 </style>
-  <link rel="manifest" href="/sontyo23/manifest.json">
-  <meta name="theme-color" content="#fefb41">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="江ノ島旅行">
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" href="/sontyo23/icon-192.png">
-  <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sontyo23/sw.js').catch(()=>{});});}</script>
+<style id="travel-refinement">
+html,body{height:100%;overflow:hidden!important;padding:0;overscroll-behavior:none}
+#appScroll{position:fixed;inset:0 0 var(--navh);overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;scroll-behavior:auto;overflow-anchor:none}
+body.mapmode #appScroll{display:none}body.splash-lock #appScroll{overflow:hidden}
+html,body,#view,#nav{overflow-anchor:none;scroll-behavior:auto}
+#splash{font-family:'M PLUS Rounded 1c',system-ui,sans-serif}
+:root{--sea:#087f96;--sea-d:#075d70;--bg:#f1f5f8;--ink:#172e40;--sub:#546777;--line:#dce5ec;--sh:0 4px 18px #153b5010;--r:20px;--navh:calc(76px + env(safe-area-inset-bottom))}
+body{background:var(--bg);font-family:system-ui,-apple-system,'Hiragino Sans','Yu Gothic',sans-serif;font-size:16px;line-height:1.7}
+.wrap{max-width:900px;padding:0 22px}header{background:linear-gradient(120deg,#102f46,#075d70);border-radius:0;padding:28px 0 30px;box-shadow:none}header:after{display:none}h1{font-size:28px;letter-spacing:.04em}.sub{font-size:14px}.count{font-size:14px;border-radius:10px;margin-top:16px;background:#ffffff12}.card{border:1px solid #e0e8ee;padding:20px;margin:18px 0;box-shadow:var(--sh)}.sect{font-size:18px}.muted,.plc,.info,.note,.kv,.hint,.near a{font-size:14px}.ttl{font-size:17px;line-height:1.6}.time{font-size:15px;font-variant-numeric:tabular-nums;letter-spacing:.03em}.note{padding:10px 12px;background:#f3f6f8}.tag,.st{font-size:12px}.btn,.btn.sm,.pinbtn,.acts button,.acts a,.dchip{font-size:14px;min-height:44px;border-radius:12px;box-shadow:none}.btn.g,.chip,.who label{background:#eaf0f4}.btn.o{color:#613516;background:#ffdbb5}.pinbtn{padding:8px 12px;margin-top:10px}.evbox{padding:20px;border:1px solid #e0e8ee;border-radius:18px;gap:12px;box-shadow:0 3px 14px #153b5008}.ev{margin-bottom:14px}.tl{padding-left:22px}.tl:before{width:2px}.ev:before{top:28px}.ev.done .evbox{opacity:.75}.chk{width:32px;height:32px;border-radius:10px;font-size:16px}.dayhead{margin:26px 0 16px}.dayno{width:50px;height:50px;font-size:12px}.daytitle{font-size:21px}.dayhead .muted{margin-top:3px}.dayhead button{min-width:44px}input,select,textarea{font-size:16px;background:#fff;min-height:44px}.row>*{min-width:0}a{color:var(--sea-d)}button,a,input,textarea,select{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid #dc951b;outline-offset:3px}nav{padding:8px max(10px,calc((100vw - 860px)/2)) calc(8px + env(safe-area-inset-bottom));border-top:1px solid var(--line);gap:4px;background:#ffffffed}nav button{min-height:56px;font-size:12px;border-radius:12px;gap:5px}nav button.on{background:#e2f1f4;color:#075d70}nav button i{font-size:21px}footer{max-width:850px;margin:auto;font-size:12px;padding:22px 70px 100px}#sos{width:48px;height:48px;right:16px;left:auto;background:#a93442;box-shadow:0 4px 14px #6d182329}#modalin{max-width:680px;padding:24px}#toast{border-radius:14px;background:#17384b}.wx .wxd{background:#f5f9fb;padding:14px}.wxd .dt,.wxd .rn,.wxd .sn{font-size:12px}.wxd .tp{font-size:16px}
+.day-switch{display:flex;gap:6px;position:sticky;top:0;z-index:8;background:#f1f5f8f5;backdrop-filter:blur(12px);padding:12px 0;margin:0 -2px;overflow-x:auto}.day-switch button{flex:1;min-width:66px;min-height:48px;border:1px solid var(--line);background:#fff;border-radius:12px;color:var(--sub);font:inherit;font-size:14px;font-weight:700}.day-switch button.on{background:#123c50;color:#fff;border-color:#123c50}.trip-quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.trip-quick a{background:#fff;border:1px solid var(--line);border-radius:14px;text-decoration:none;padding:14px 16px;font-weight:700;font-size:14px}.trip-quick small{display:block;color:var(--sub);font-weight:400;font-size:12px}.hotel-card{border-left:4px solid var(--sea)}.hotel-card h2{font-size:18px;margin:0 0 6px}.hotel-card p{font-size:14px;margin:8px 0}.game-link{display:flex;align-items:center;justify-content:space-between;text-decoration:none;background:#17394e;color:#fff;border-radius:18px;padding:22px;margin:18px 0;font-weight:700}.game-link small{display:block;font-size:14px;font-weight:400;opacity:.8}
+#mapbar{padding:calc(12px + env(safe-area-inset-top)) 12px 14px;background:linear-gradient(#f1f5f8 80%,#f1f5f800)}#mapbar .in{padding:8px 0}.map-search{pointer-events:auto;display:flex;gap:8px}.map-search input{box-shadow:var(--sh);border-color:#c9d7df}.map-search button{white-space:nowrap;background:#123c50;color:#fff;border:0;border-radius:12px;padding:0 14px;font:inherit;font-size:14px}.map-legend{pointer-events:none;font-size:12px;color:#344f61;margin-top:2px}.mtool{width:88px;height:44px;border-radius:12px;font-size:14px;font-weight:700;right:12px}#btnCam{bottom:302px}#btnList{bottom:254px}#btnRoute{bottom:206px}#btnTile{bottom:158px}#btnLoc{bottom:110px}.leaflet-control-zoom{margin-bottom:26px!important;margin-right:12px!important}.leaflet-control-zoom a{width:40px!important;height:36px!important;line-height:36px!important}#sheet{max-height:58%;border-radius:24px 24px 0 0;padding:14px 20px 24px;box-shadow:0 -8px 32px #14364a26}#sheetclose{display:block;margin-left:auto;border:1px solid var(--line);background:#f1f5f8;border-radius:10px;min-height:44px;padding:0 14px;font:inherit;font-size:14px}#sheet.on~*{visibility:visible}.slist{padding:13px 4px;border-bottom:1px solid var(--line)}.pin{border-width:3px;box-shadow:0 3px 10px #17384b40}#mcount{bottom:20px;left:12px;font-size:12px;max-width:65%}body.mapmode #sos{right:auto;left:12px;bottom:calc(108px + var(--navh))}.acts{gap:9px}.near a{min-height:40px;display:flex;align-items:center;background:#edf3f7}.leaflet-tooltip{font-size:14px;font-weight:700}.map-empty{padding:16px;background:white;border-radius:14px}
+@media(min-width:900px){#view{padding-top:6px}.evbox{padding:24px}.trip-quick{grid-template-columns:1fr 1fr}#sheet{left:20px;right:auto;width:420px;bottom:20px;max-height:calc(100% - 160px);border-radius:22px}#mapbar{right:auto;width:600px}body.mapmode #sos{left:auto;right:116px;bottom:calc(20px + var(--navh))}}
+@media(max-width:420px){.wrap{padding:0 14px}.card{padding:16px}.evbox{padding:14px 12px;gap:8px}.ttl{font-size:16px}.chk{width:28px;height:28px}.trip-quick a{padding:12px}.sub{font-size:12px}h1{font-size:25px}.day-switch button{font-size:13px}.acts{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#sheet,#toast{transition:none}.pin.sel{animation:none}}
+</style>
 </head>
 <body>
 
 <div id="offbar">📴 オフライン中：保存した地図と手元のデータで動いています</div>
 
+<div id="appScroll">
 <header>
   <div class="wrap">
     <h1>🌊 えのしま合宿</h1>
-    <div class="sub">2026年9月19日（土）〜21日（月・敬老の日）／身内用しおり</div>
+    <div class="sub">2026年9月19日（土）〜21日（月・敬老の日）／身内用しおり <span style="font-size:12px;opacity:.7">UI 1.3</span></div>
     <div class="count" id="count">よみこみ中…</div>
   </div>
 </header>
 
 <main class="wrap" id="view"></main>
 <footer>地図：OpenStreetMap／地理院タイル　天気：Open-Meteo　施設情報は2026年9月調べ・要再確認</footer>
+</div>
 
 <div id="mapwrap">
   <div id="map"></div>
-  <div id="mapbar"><div class="in" id="dchips"></div></div>
+  <div id="mapbar"><div class="map-search"><input id="spotSearch" type="search" placeholder="予定・ホテル・スポットを検索" aria-label="スポットを検索"><button id="fitMap">全体表示</button></div><div class="in" id="dchips"></div><div class="map-legend">番号＝日程の順番 · 点線＝順路（実際の道路経路ではありません）</div></div>
   <div id="pickbar"><span id="pickmsg"></span><button id="pickcancel">やめる</button></div>
   <div id="mcount"></div>
-  <button class="mtool" id="btnCam" title="写真">📷</button>
-  <button class="mtool" id="btnList" title="一覧">📋</button>
-  <button class="mtool" id="btnRoute" title="順路">〰️</button>
-  <button class="mtool" id="btnTile" title="地図の種類">🗺</button>
-  <button class="mtool" id="btnLoc" title="現在地">🧭</button>
-  <div id="sheet"><div class="grab"></div><div id="sheetin"></div></div>
+  <button class="mtool" id="btnCam" title="写真">📷 写真</button>
+  <button class="mtool" id="btnList" title="一覧">☷ 一覧</button>
+  <button class="mtool" id="btnRoute" title="順路">〰 順路</button>
+  <button class="mtool" id="btnTile" title="地図の種類">▧ 地図</button>
+  <button class="mtool" id="btnLoc" title="現在地">◎ 現在地</button>
+  <div id="sheet"><div class="grab"></div><button id="sheetclose" aria-label="スポット詳細を閉じる">閉じる ×</button><div id="sheetin"></div></div>
 </div>
 
 <button id="sos">🆘<br>SOS</button>
 <div id="modal"><div id="modalin"></div></div>
 <div class="lightbox" id="lb"><img id="lbimg" alt=""></div>
 <nav id="nav"></nav>
-<div id="toast"></div>
+<div id="toast" role="status" aria-live="polite"></div>
 <input type="file" id="picker" accept="image/*" capture="environment" style="display:none">
 
 <script>
@@ -446,10 +455,10 @@ const DAYS=[
    info:'車で約1.5〜2時間（渋滞次第）。電車なら新宿から小田急で片瀬江ノ島へ約1時間15分。',
    note:'仮眠が足りていないなら出発を遅らせる判断も。', tbd:true},
 
-  {time:'09:30', icon:'🅿️', title:'駐車場に入れる', place:'江の島なぎさ駐車場（藤沢市江の島1-2-1）',
-   ll:[35.301418,139.482501], hrs:{o:'07:30',c:'21:00'},
-   info:'327台・1時間400円。すぐ隣に観光協会の駐車場（74台）もあり。',
-   note:'三連休の日曜。午前中の早い時間に満車になることが多いので、着いたらまず駐車場を確保。'},
+  {time:'09:30', icon:'🧳', title:'ホテルへ・荷物を預ける（要確認）', place:'ホテル江ノ島アパートメント｜藤沢市片瀬2-16-34',
+   ll:[35.3184133,139.4859136], tel:'090-4018-5457', url:'https://visionary.co.jp/apartmanual',
+   info:'朝はまず宿へ。荷物預かりの可否・受け渡し方法は事前に宿へ確認。チェックインは16:00から。',
+   note:'宿の公式案内は駐車場なし。近隣の三井のリパーク片瀬5丁目第2などを利用。入口付近は一時停車も禁止。荷物を預けられない場合は車内保管またはロッカーを検討。10:00の弁天橋到着は移動・荷物預け次第で調整。', tbd:true},
 
   {time:'10:00', icon:'🌉', title:'弁天橋をわたる', place:'江の島弁天橋（長さ389m）', ll:[35.304010,139.482016],
    info:'歩行者用の橋。渡りながら海と島の写真が撮れる定番スポット。'},
@@ -497,17 +506,17 @@ const DAYS=[
 
   {time:'19:30', icon:'🍜', title:'夕ごはん', place:'江の島・片瀬海岸 周辺', ll:[35.305500,139.483500], approx:true, tbd:true},
 
-  {time:'20:45', icon:'🛏️', title:'ホテル チェックイン', place:'江ノ島周辺（宿は確認中）', ll:null,
-   note:'宿が決まったら「位置を直す」で地図にピンを立ててください。', yen:'7,000円/人', tbd:true}
+  {time:'20:45', icon:'🛏️', title:'ホテル チェックイン', place:'ホテル江ノ島アパートメント｜藤沢市片瀬2-16-34', ll:[35.3184133,139.4859136], tel:'090-4018-5457', url:'https://visionary.co.jp/apartmanual',
+   info:'チェックイン16:00〜24:00／チェックアウト10:00まで。予約時の案内を優先。', note:'キーボックスの案内を予約メッセージで確認。', yen:'7,000円/人（既存の予算目安）'}
 ]},
 
 { date:'2026-09-21', wd:'月・祝', color:'#8f7ad6', title:'東京へ戻って脱出ゲーム → 解散',
   wx:{lat:35.6605,lon:139.6995,name:'渋谷'}, items:[
-  {time:'08:30', icon:'☀️', title:'起床・朝ごはん', place:'ホテル', ll:null},
-  {time:'10:00', icon:'🧳', title:'チェックアウト', place:'ホテル', ll:null,
+  {time:'08:30', icon:'☀️', title:'起床・朝ごはん', place:'ホテル江ノ島アパートメント', ll:[35.3184133,139.4859136]},
+  {time:'10:00', icon:'🧳', title:'チェックアウト', place:'ホテル江ノ島アパートメント', ll:[35.3184133,139.4859136],
    note:'忘れ物チェック。充電器とモバイルバッテリーは特に忘れやすい。'},
 
-  {time:'10:15', icon:'🚗', title:'渋谷へ出発（早めに！）', place:'江の島 → 渋谷', ll:[35.301418,139.482501],
+  {time:'10:15', icon:'🚗', title:'渋谷へ出発（早めに！）', place:'ホテル江ノ島アパートメント → 渋谷', ll:[35.3184133,139.4859136],
    info:'通常なら車で1時間半前後、電車なら片瀬江ノ島から約1時間15分。',
    note:'⚠️ 三連休最終日の上りは渋滞必至。14:40の入場時刻は動かせないので、2時間以上の余裕を見て出発を。', tbd:true},
 
@@ -549,9 +558,9 @@ const POIS=[
    note:'大山駅までは東武東上線の各駅停車で約6分。'}
 ];
 
-const COST_VER=4;
+const COST_VER=5;
 const COSTS=[
-  {id:'hotel', icon:'🛏️', label:'ホテル（1泊）',        min:7000, max:7000, note:'江ノ島周辺・宿は確認中'},
+  {id:'hotel', icon:'🛏️', label:'ホテル（1泊）',        min:7000, max:7000, note:'ホテル江ノ島アパートメント・金額は既存の予算目安'},
   {id:'uma',   icon:'🐴', label:'馬ヲムム（夕食）',      min:3000, max:4000, note:'9/19 飲む量しだい'},
   {id:'spo',   icon:'🏓', label:'スポッチャ（オール）',  min:3300, max:3700, note:'土日祝・フリータイム想定＋ドリンクバー390円'},
   {id:'eno',   icon:'🌊', label:'江ノ島観光',            min:1550, max:2500, note:'江の島1day券1,550円＋おやつ等'},
@@ -563,7 +572,7 @@ const COSTS=[
 const PACKING=['現金（多めに）','健康保険証','モバイルバッテリー','充電ケーブル','着替え（2日分）','洗面用具・歯ブラシ','タオル','常備薬・酔い止め','日焼け止め','動きやすい服＋靴下（スポッチャ用）','歩きやすい靴','折りたたみ傘','ビニール袋（濡れもの用）','免許証・ETCカード','脱出ゲームのチケット','イヤホン（脱出ゲームで使う）','カメラ'];
 
 const TODOS=[
- {t:'ホテルを予約して地図にピンを立てる', due:'2026-09-12'},
+ {t:'ホテルに朝の荷物預け・駐車先・予約内容を確認する', due:'2026-09-12'},
  {t:'脱出ゲームのチケットを人数分確保（祝日3,300円）', due:'2026-09-13'},
  {t:'馬ヲムムに電話予約（03-3961-8066／7名以上は電話必須）', due:'2026-09-12'},
  {t:'大山→ラウンドワンの移動手段を決める（車/タクシー）', due:'2026-09-14'},
@@ -589,6 +598,7 @@ const POLLS=[
 ];
 
 const SOURCES=[
+  {t:'ホテル江ノ島アパートメント 公式案内', u:'https://visionary.co.jp/apartmanual'},
   {t:'馬ヲムム 公式', u:'https://vawomm.foodre.jp/'},
   {t:'ラウンドワン板橋店 店舗情報', u:'https://www.round1.co.jp/shop/tenpo/tokyo-itabashi.html'},
   {t:'ラウンドワン板橋店 料金表', u:'https://www.round1.co.jp/shop/ryokin/tokyo-itabashi.html'},
@@ -635,7 +645,7 @@ function fresh(){return{
   payments:[], memo:'', votes:{}, cached:{},
   gas:{km:150,kml:12,yen:175,toll:3000,park:2000,exempt:false},
   leadHome:60, moveMode:'car',
-  sos:{host:'',hostTel:'',hotel:'',hotelTel:'',note:''},
+  sos:{host:'',hostTel:'',hotel:'ホテル江ノ島アパートメント',hotelTel:'090-4018-5457',note:''},
   contacts:[], wx:null, wxAt:0
 };}
 let S=fresh(), MIGRATED='';
@@ -663,6 +673,9 @@ let S=fresh(), MIGRATED='';
     if(!S.members.includes(S.meName)) S.meName=S.members[0];
   }catch(e){ S=fresh(); }
 })();
+if(!S.sos.hotel) S.sos.hotel='ホテル江ノ島アパートメント';
+if(S.sos.hotel==='ホテル江ノ島アパートメント'&&!S.sos.hotelTel) S.sos.hotelTel='090-4018-5457';
+S.todos.forEach(t=>{if(t.text==='ホテルを予約して地図にピンを立てる'){t.text=TODOS[0].t;t.on=false;}});
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}};
 save();
 
@@ -948,7 +961,8 @@ function visible(){
   const all=spots().filter(s=>s.ll);
   if(S.dayFilter==='all') return all;
   if(S.dayFilter==='poi') return all.filter(s=>s.kind!=='plan');
-  return all.filter(s=>s.di===+S.dayFilter||s.kind!=='plan');
+  const planned=all.filter(s=>s.di===+S.dayFilter);
+  return all.filter(s=>s.di===+S.dayFilter||(s.kind!=='plan'&&dist([DAYS[+S.dayFilter].wx.lat,DAYS[+S.dayFilter].wx.lon],s.ll)<12)); 
 }
 function drawMap(fit){
   if(!map) return;
@@ -969,12 +983,15 @@ function drawMap(fit){
       +'<i>'+s.it.icon+'</i>'+(s.kind==='plan'?'<b>'+s.no+'</b>':'')+(np?'<u>📷</u>':'')+'</div>';
     const mk=L.marker(s.ll,{icon:L.divIcon({html,className:'',iconSize:[0,0]}),
       zIndexOffset:sel?1000:(small?-100:0),interactive:!placing});
+    mk.bindTooltip(esc((s.it.time?s.it.time+' ':'')+s.it.title),{direction:'top',offset:[0,-38]});
     mk.addTo(pinLayer);
     if(!placing) mk.on('click',()=>selectSpot(s.id,false));
   });
   if(fit&&vs.length){
-    const target=(S.dayFilter==='all')?vs.filter(s=>s.kind==='plan'):vs;
-    if(target.length) map.fitBounds(L.latLngBounds(target.map(s=>s.ll)),{padding:[70,70],maxZoom:15});
+    const day=DAYS[+S.dayFilter];
+    const local=day?vs.filter(s=>dist([day.wx.lat,day.wx.lon],s.ll)<15):vs;
+    const target=(S.dayFilter==='all')?vs.filter(s=>s.kind==='plan'):(local.length?local:vs);
+    if(target.length) map.fitBounds(L.latLngBounds(target.map(s=>s.ll)),{paddingTopLeft:[50,160],paddingBottomRight:[110,90],maxZoom:15});
   }
   renderChips(); mapCount();
 }
@@ -1010,6 +1027,7 @@ function selectSpot(id,keepZoom){
   drawMap(false);
   if(s&&s.ll&&map) map.setView(s.ll,keepZoom?map.getZoom():Math.max(map.getZoom(),16),{animate:true});
   sheetSpot(id);
+  if(s&&s.ll&&map&&innerWidth<900) setTimeout(()=>{if(S.tab==='map'&&S.sel===id)map.panBy([0,map.getSize().y*0.19],{animate:false});},100);
 }
 function mapCount(){
   const el=$('#mcount'); if(!el) return;
@@ -1077,7 +1095,7 @@ async function downloadArea(areaId){
 /* ============================================================
    10. ボトムシート
    ============================================================ */
-function openSheet(html){ $('#sheetin').innerHTML=html; $('#sheet').classList.add('on'); hydratePhotos(); }
+function openSheet(html){ $('#sheet').scrollTop=0; $('#sheetin').innerHTML=html; $('#sheet').classList.add('on'); hydratePhotos(); }
 function closeSheet(){ $('#sheet').classList.remove('on'); }
 
 function sheetSpot(id){
@@ -1301,7 +1319,7 @@ function wxCard(){
 }
 function viewPlan(){
   const cur=currentId(), next=flat().find(e=>e.at>Date.now());
-  let h='';
+  let h=planControls();
   if(MIGRATED){ h+='<div class="hint g">📦 前のバージョン（'+MIGRATED.slice(-2)+'）の保存データを引き継ぎました。</div>'; }
   h+=alertBlock();
   if(next){
@@ -1311,8 +1329,10 @@ function viewPlan(){
       +'<div style="flex:1"><div class="time">'+next.it.time+'〜</div><div class="ttl">'+esc(next.it.title)+'</div></div>'
       +(s&&s.ll?'<button class="btn sm" data-act="tomap" data-id="'+next.id+'">🗺 地図</button>':'')+'</div></div>';
   }
+  h+=hotelCard();
   h+=wxCard();
   DAYS.forEach((day,di)=>{
+    if(planDay!=='all'&&Number(planDay)!==di)return;
     const doneN=day.items.filter((_,ii)=>S.done[itemId(di,ii)]).length;
     h+='<div class="dayhead"><div class="dayno" style="background:'+day.color+'">DAY<br>'+(di+1)+'</div>'
       +'<div style="flex:1"><div class="daytitle">'+day.date.slice(5).replace('-','/')+'（'+day.wd+'）</div>'
@@ -1525,7 +1545,7 @@ function viewPrep(){
     +'・<b>大山→ラウンドワン板橋は約4.5km</b>。歩けないので移動手段を決めておく。<br>'
     +'・9/19は土曜でラウンドワン板橋は24時間営業。オールは可能。<br>'
     +'・オール明けの運転は本当に危険。運転担当は必ず仮眠を。<br>'
-    +'・9/20は三連休の中日。江ノ島の駐車場は午前中に埋まる。<br>'
+    +'・9/20は朝に宿へ。荷物預けは事前確認。宿に駐車場はないため近隣の有料駐車場を利用。<br>'
     +'・岩屋は9/30まで18時まで営業。夕方に回せる。<br>'
     +'・9/23まで「江の島灯籠」開催中。夜18時から島がライトアップ。<br>'
     +'・9/21は祝日で上りが渋滞。14:40は動かせないので早めに出発。<br>'
@@ -1540,7 +1560,7 @@ function viewPrep(){
 function viewMore(){
   const noll=spots().filter(s=>!s.ll).length, fixed=Object.keys(S.coords).length;
   const ph=allPhotos();
-  let h='<div class="card"><div class="sect" style="margin-top:0">📝 自由メモ</div>'
+  let h=gameCard()+'<div class="card"><div class="sect" style="margin-top:0">📝 自由メモ</div>'
     +'<textarea id="memo" rows="8" placeholder="決まったこと・お店の候補・欲しいお土産など">'+esc(S.memo)+'</textarea>'
     +'<div class="muted" style="margin-top:6px">入力すると自動保存されます</div></div>';
 
@@ -1659,21 +1679,35 @@ function sosLoc(){
 /* ============================================================
    18. 描画・イベント
    ============================================================ */
+let renderedTab=null;
+
 function render(){
+  const previousTab=renderedTab;
+  const scroller=$('#appScroll');
+  const targetY=previousTab===S.tab?scroller.scrollTop:0;
+  renderedTab=S.tab;
   const views={plan:viewPlan,money:viewMoney,crew:viewCrew,prep:viewPrep,more:viewMore};
   document.body.classList.toggle('mapmode',S.tab==='map');
   if(S.tab==='map'){
     initMap();
-    if(map) setTimeout(()=>map.invalidateSize(),60);
+    if(map) setTimeout(()=>map.invalidateSize({pan:false}),60);
     renderChips(); mapCount();
     $('#btnRoute').classList.toggle('on',S.route);
   }else{
     $('#view').innerHTML=(views[S.tab]||viewPlan)();
-    window.scrollTo({top:0});
     hydratePhotos();
   }
-  $('#nav').innerHTML=TABS.map(t=>'<button data-act="tab" data-id="'+t.id+'" class="'+(S.tab===t.id?'on':'')+'">'
-    +'<i>'+t.icon+'</i>'+t.label+'</button>').join('');
+  // Keep navigation DOM and focus stable across tab changes.
+  if(!$('#nav').children.length){
+    $('#nav').innerHTML=TABS.map(t=>'<button type="button" data-act="tab" data-id="'+t.id+'"><i aria-hidden="true">'+t.icon+'</i>'+t.label+'</button>').join('');
+  }
+  $$('#nav button').forEach(button=>{
+    const selected=button.dataset.id===S.tab;
+    button.classList.toggle('on',selected);
+    button.setAttribute('aria-current',selected?'page':'false');
+  });
+  scroller.scrollTop=targetY;
+
 }
 
 document.addEventListener('click',function(e){
@@ -1681,7 +1715,7 @@ document.addEventListener('click',function(e){
   const a=b.dataset.act;
 
   /* ---- ナビ・地図 ---- */
-  if(a==='tab'){ S.tab=b.dataset.id; save(); render(); if(S.tab!=='map') closeSheet(); }
+  if(a==='tab'){ e.preventDefault(); if(S.tab===b.dataset.id)return; if(document.activeElement instanceof HTMLElement)document.activeElement.blur(); S.tab=b.dataset.id; save(); render(); if(S.tab!=='map') closeSheet(); }
   else if(a==='dfil'){ S.dayFilter=b.dataset.id; S.sel=null; save(); closeSheet(); drawMap(true); }
   else if(a==='fly'){ selectSpot(b.dataset.id,false); }
   else if(a==='pick'){ closeSheet(); setPlacing('pick',b.dataset.id,'📌 地図をタップして位置を決めてください'); }
@@ -1701,7 +1735,7 @@ document.addEventListener('click',function(e){
     setTimeout(function(){const s=spotById(id); if(s&&s.ll) selectSpot(id,false); else {S.sel=id; sheetSpot(id);}},140);
   }
   else if(a==='daymap'){ S.tab='map'; S.dayFilter=b.dataset.id; S.sel=null; save(); render(); setTimeout(()=>drawMap(true),140); }
-  else if(a==='toplan'){ S.tab='plan'; save(); closeSheet(); render(); }
+  else if(a==='toplan'){ planDay=String(spotById(b.dataset.id)?.di??'all'); S.tab='plan'; save(); closeSheet(); render(); }
 
   /* ---- しおり ---- */
   else if(a==='done'){ S.done[b.dataset.id]=!S.done[b.dataset.id]; save(); render(); }
@@ -2038,6 +2072,35 @@ if(!document.querySelector('link[rel="manifest"]')){
   }catch(e){}
 }
 
+
+let planDay='all';
+function gameCard(){return '<a class="game-link" href="https://iwamotoco-source.github.io/sontyo/" target="_blank" rel="noopener noreferrer"><span>🎮 ミニゲーム<small>移動中・待ち時間のおまけ</small></span><span>遊ぶ ↗</span></a>';}
+function planControls(){return '<div class="trip-quick"><a href="#" data-act="hotelgo">🛏 ホテルへ<small>住所・連絡先・経路</small></a><a href="https://iwamotoco-source.github.io/sontyo/" target="_blank" rel="noopener noreferrer">🎮 ミニゲーム ↗<small>待ち時間に遊ぶ</small></a></div><div class="day-switch" aria-label="表示する日程">'+[{id:'all',name:'全日程'},{id:'0',name:'9/19 土'},{id:'1',name:'9/20 日'},{id:'2',name:'9/21 祝'}].map(x=>'<button data-act="pland" data-id="'+x.id+'" aria-pressed="'+(planDay===x.id)+'" class="'+(planDay===x.id?'on':'')+'">'+x.name+'</button>').join('')+'</div>';}
+function hotelCard(){if(planDay==='0')return '';return '<details class="card hotel-card"><summary><b>🛏 ホテル江ノ島アパートメント</b><div class="muted">9/20 朝に荷物預け予定 · 事前確認あり</div></summary><p>藤沢市片瀬2-16-34<br>チェックイン16:00〜／チェックアウト10:00まで</p><p>朝の荷物預けは宿へ確認。公式案内では駐車場なし・入口付近は一時停車も禁止です。予約先から別の駐車案内がある場合は、その内容を確認してください。</p><div class="acts"><a class="prim" href="tel:09040185457">宿へ電話</a><a href="https://visionary.co.jp/apartmanual" target="_blank" rel="noopener">公式案内 ↗</a><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('三井のリパーク 片瀬5丁目第2 藤沢市片瀬5-7-7')+'" target="_blank" rel="noopener">近隣駐車場 ↗</a><button data-act="hotelgo">ホテルを地図で見る</button></div></details>';}
+$('#sheetclose').onclick=closeSheet;
+$('#fitMap').onclick=()=>{closeSheet();drawMap(true);};
+$('#spotSearch').addEventListener('input',e=>{
+ const q=e.target.value.trim().normalize('NFKC').toLowerCase();
+ if(!q){closeSheet();return;}
+ const results=spots().filter(s=>[s.it.title,s.it.place,s.it.note].join(' ').normalize('NFKC').toLowerCase().includes(q));
+ openSheet('<h2 style="font-size:18px;margin:4px 0">検索結果 <span class="muted">'+results.length+'件</span></h2>'+(results.length?results.map(s=>'<button class="slist" style="width:100%;text-align:left;background:none;border-width:0 0 1px;font:inherit" data-act="searchspot" data-id="'+s.id+'"><span>'+s.it.icon+'</span><span><b>'+esc(s.it.title)+'</b><span class="muted" style="display:block">'+(s.day?s.day.date.slice(5)+' '+s.it.time:esc(s.it.place))+'</span></span></button>').join(''):'<p class="muted">見つかりませんでした。別の名前や地名で検索してください。</p>'));
+});
+document.addEventListener('click',e=>{
+ const b=e.target.closest('[data-act]');if(!b)return;
+ if(b.dataset.act==='pland'){planDay=b.dataset.id;render();$('#appScroll').scrollTop=0;}
+ if(b.dataset.act==='hotelgo'){e.preventDefault();S.tab='map';S.dayFilter='1';save();render();selectSpot('d1-13',false);}
+ if(b.dataset.act==='searchspot'){const s=spotById(b.dataset.id);S.dayFilter=s.kind==='plan'?String(s.di):'poi';save();$('#spotSearch').value='';renderChips();selectSpot(s.id,false);}
+});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape'){closeSheet();$('#modal').classList.remove('on');$('#lb').classList.remove('on');}
+ if((e.key==='Enter'||e.key===' ')&&e.target.matches('[role="button"],.chk')){e.preventDefault();e.target.click();}
+});
+const accessibilityObserver=new MutationObserver(()=>{
+ document.querySelectorAll('.chk:not([role]),.slist[data-act]:not(button):not([role]),.po[data-act]:not([role])').forEach(el=>{el.setAttribute('role','button');el.tabIndex=0;el.setAttribute('aria-label',el.classList.contains('chk')?'予定の完了を切り替える':el.textContent.trim());});
+ document.querySelectorAll('button[title]:not([aria-label])').forEach(el=>el.setAttribute('aria-label',el.title));
+});
+accessibilityObserver.observe(document.body,{childList:true,subtree:true});
+
 setInterval(tick,30000); tick(); render();
 setTimeout(function(){ if(navigator.onLine) fetchWx(false); },800);
 </script>
@@ -2095,392 +2158,4 @@ if(GO)GO.addEventListener("click",finish);
 if(TAP)SP.addEventListener("click",finish);
 if(AUTO>0)setTimeout(finish,AUTO*1000);
 window.skipSplash=finish;
-})();</script> <!-- ============ UI Pro Pack（ここから） ============ -->
-<style id="pro-ui">
-/* ---------- 1. デザイントークン ---------- */
-:root{
-  --sea:#1b8db3; --sea-2:#35b6d8; --sea-d:#0e6a88; --sea-soft:#e9f6fb;
-  --sun:#f6893f; --sun-soft:#fff2e6;
-  --pink:#f5738d; --pink-soft:#ffe9ee;
-  --bg:#faf6f0; --card:#ffffff;
-  --ink:#2f2a25; --sub:#7c7168; --line:#ece4d8;
-  --hair:rgba(60,45,35,.09);
-  --ok:#3f9e73; --warn:#c98a22; --bad:#d55a4c; --poi:#4a95d6;
-  --e1:0 1px 2px rgba(60,45,35,.05),0 2px 8px -3px rgba(60,45,35,.10);
-  --e2:0 2px 6px rgba(60,45,35,.05),0 14px 28px -14px rgba(60,45,35,.24);
-  --e3:0 6px 14px rgba(60,45,35,.07),0 26px 52px -18px rgba(60,45,35,.30);
-  --sh:var(--e1);
-  --r:20px;
-  --navh:calc(68px + env(safe-area-inset-bottom));
-}
-body{
-  background:radial-gradient(1100px 460px at 50% -240px,#d9eff7 0,rgba(217,239,247,0) 68%),var(--bg);
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-  letter-spacing:.005em;
-}
-::selection{background:rgba(27,141,179,.18)}
-:focus-visible{outline:2px solid var(--sea);outline-offset:2px;border-radius:10px}
-.wrap{max-width:580px;padding:0 16px}
-
-/* ---------- 2. ヘッダー ---------- */
-header{
-  padding:22px 0 30px;border-radius:0 0 30px 30px;
-  background:linear-gradient(155deg,#3fb8d8 0%,#1b8db3 48%,#116a8a 100%);
-  box-shadow:0 14px 34px -18px rgba(14,80,105,.65);
-}
-header:after{display:none}
-header:before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(560px 200px at 88% -30%,rgba(255,255,255,.30),transparent 70%),
-             radial-gradient(420px 220px at -10% 120%,rgba(0,0,0,.14),transparent 70%);
-}
-h1{font-size:25px;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(6,58,78,.28)}
-header .sub{font-size:12px;letter-spacing:.05em;opacity:.86;margin-top:4px}
-.count{
-  margin-top:14px;padding:8px 15px;font-size:13.5px;
-  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  box-shadow:0 6px 16px -8px rgba(0,0,0,.35);
-}
-
-/* ---------- 3. カード・見出し ---------- */
-.card{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-  box-shadow:var(--e1);padding:16px;margin:14px 0;
-}
-.sect{
-  display:flex;align-items:center;gap:8px;
-  margin:20px 0 10px;font-size:14.5px;letter-spacing:.01em;
-}
-.sect:before{
-  content:"";flex:none;width:4px;height:17px;border-radius:3px;
-  background:linear-gradient(180deg,var(--sea-2),var(--sea));
-}
-.muted{font-size:12px;line-height:1.65}
-footer{opacity:.75;padding:26px 0 10px}
-
-/* ---------- 4. ボタン・入力 ---------- */
-.btn{
-  padding:10px 17px;font-size:13.5px;border-radius:999px;
-  background:linear-gradient(180deg,var(--sea-2),var(--sea));
-  box-shadow:0 8px 16px -10px rgba(14,106,136,.95);
-  transition:transform .12s cubic-bezier(.2,.8,.3,1),box-shadow .2s,filter .2s;
-}
-.btn:hover{filter:brightness(1.04)}
-.btn:active{transform:translateY(1px) scale(.985);box-shadow:0 3px 8px -6px rgba(14,106,136,.9)}
-.btn.g{background:#f4ede3;color:var(--ink);border:1px solid var(--line);box-shadow:none}
-.btn.o{background:linear-gradient(180deg,#ffab6d,var(--sun));box-shadow:0 8px 16px -10px rgba(214,110,40,.9)}
-.btn.r{background:linear-gradient(180deg,#e5776a,var(--bad))}
-.btn.sm{padding:7px 13px;font-size:12.5px}
-.btn.w{border-radius:16px;padding:13px}
-input,select,textarea{
-  background:#fff;border:1.5px solid var(--line);border-radius:13px;padding:10px 12px;
-  transition:border-color .15s,box-shadow .15s;
-}
-input:focus,select:focus,textarea:focus{
-  outline:none;border-color:#9ad6e9;box-shadow:0 0 0 4px rgba(27,141,179,.13);
-}
-.x{border-radius:50%;transition:background .15s,color .15s}
-.x:hover{background:#f6efe6;color:var(--bad)}
-.stepper button{border:1px solid var(--line);background:#fff;box-shadow:var(--e1)}
-.who label{transition:.15s}
-.tag{font-size:10px;letter-spacing:.03em;padding:3px 9px}
-
-/* ---------- 5. タイムライン ---------- */
-.dayhead{margin:26px 0 10px}
-.dayno{width:46px;height:46px;border-radius:16px;box-shadow:var(--e2)}
-.daytitle{font-size:17px;letter-spacing:-.01em}
-.tl{padding-left:24px}
-.tl:before{left:7px;width:2px;background:linear-gradient(180deg,var(--line),rgba(236,228,216,.2))}
-.ev:before{left:-21px;top:19px;width:10px;height:10px;border-width:3px;transition:.2s}
-.ev.cur:before{box-shadow:0 0 0 6px rgba(245,115,141,.16)}
-.evbox{
-  border:1px solid var(--line);border-radius:18px;padding:13px 14px;
-  box-shadow:var(--e1);transition:box-shadow .2s,transform .2s,border-color .2s;
-}
-.evbox:hover{box-shadow:var(--e2)}
-.ev.hard .evbox{border:1px solid #ffd0da;background:linear-gradient(180deg,#fffafb,#fff)}
-.ev.cur .evbox{border-color:#ffc4d1;box-shadow:0 0 0 3px rgba(245,115,141,.10),var(--e2)}
-.ev.done .evbox{opacity:1;background:#fbf9f6;border-style:dashed;box-shadow:none}
-.ev.done .ttl{color:var(--sub);text-decoration:line-through;text-decoration-color:rgba(0,0,0,.2)}
-.chk{border-radius:9px;transition:.18s}
-.chk:hover{border-color:#c9dfe6;background:#f7fcfd}
-.ttl{font-size:15.5px;letter-spacing:-.005em}
-.note{border-radius:12px;padding:8px 10px;line-height:1.6;border:1px solid rgba(0,0,0,.03)}
-.info{font-size:11.5px}
-.pinbtn{padding:5px 12px;transition:.15s}
-.pinbtn:hover{filter:brightness(.97)}
-.hint{border-radius:14px;padding:10px 12px;line-height:1.65;border-left:3px solid currentColor}
-.nb{width:18px;height:18px;font-size:10.5px}
-
-/* ---------- 6. 逆算アラート・天気 ---------- */
-.alert{
-  border-radius:var(--r);padding:16px;border:1px solid #ffd7de;
-  background:linear-gradient(150deg,#fff4f6,#fff);box-shadow:var(--e2);
-}
-.alert.hot{border-color:#ffb9c6;background:linear-gradient(150deg,#ffe6ea,#fff8f9)}
-.alert .lb{letter-spacing:.08em;font-size:11px;text-transform:uppercase}
-.alert .bg{font-size:21px;letter-spacing:-.01em;margin-top:2px}
-.bar{height:7px;border-radius:99px;background:#f2e7d8;box-shadow:inset 0 1px 2px rgba(0,0,0,.05)}
-.bar i{transition:width .6s cubic-bezier(.2,.8,.3,1)}
-.wxd{
-  border-radius:16px;border:1px solid var(--line);
-  background:linear-gradient(180deg,#fbfeff,#f6fbfd);box-shadow:var(--e1);padding:11px 9px;
-}
-.wxd .ic{font-size:28px;margin:2px 0}
-.total{
-  border-radius:var(--r);padding:20px;
-  background:linear-gradient(150deg,#ffdfb4,#ffb877 70%,#ffa863);
-  box-shadow:0 14px 30px -16px rgba(200,120,40,.7);
-}
-.total b{font-size:32px;letter-spacing:-.02em;margin:4px 0}
-
-/* ---------- 7. リスト・表・投票 ---------- */
-table td,table th{padding:9px 4px}
-.li{padding:10px 2px;border-radius:10px;transition:background .15s}
-.li:hover{background:#fdfaf6}
-.po{border-radius:13px;padding:10px 12px;border:1.5px solid var(--line);background:#fbf7f2;transition:.18s}
-.po:hover{border-color:#bfe0ea}
-.po.mine{background:#f2fbfd}
-.po i{background:linear-gradient(90deg,#d6eef6,#bfe4f0);transition:width .5s cubic-bezier(.2,.8,.3,1)}
-.tx{border-radius:14px;padding:11px 13px;border:1px solid #d9eef5}
-.chip{padding:6px 6px 6px 13px;box-shadow:var(--e1);border:1px solid transparent}
-.chip.drv{border-color:#bfe2ee}
-.due{padding:3px 8px}
-
-/* ---------- 8. マップUI ---------- */
-#mapbar{padding:calc(10px + env(safe-area-inset-top)) 12px 10px;background:linear-gradient(#fbf7f0e6,#fbf7f000)}
-.dchip{padding:9px 15px;box-shadow:var(--e2);border:1px solid var(--hair);transition:.15s}
-#mdock{
-  position:absolute;right:12px;bottom:82px;z-index:500;display:flex;flex-direction:column;
-  background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-  border:1px solid var(--hair);border-radius:18px;overflow:hidden;box-shadow:var(--e3);
-}
-#mdock .mtool{
-  position:static;width:48px;height:48px;border-radius:0;background:transparent;
-  box-shadow:none;border-bottom:1px solid var(--hair);transition:background .15s;
-}
-#mdock .mtool:last-child{border-bottom:none}
-#mdock .mtool:active{background:#f1f7f9}
-#mdock .mtool.on{background:var(--sea);color:#fff}
-#mcount{left:12px;bottom:20px;border-radius:16px;padding:9px 13px;border:1px solid var(--hair);box-shadow:var(--e3)}
-#pickbar{
-  left:12px;right:12px;top:calc(10px + env(safe-area-inset-top));border-radius:16px;
-  padding:12px 14px;box-shadow:var(--e3);background:linear-gradient(180deg,#ffd977,#ffc94f);
-}
-#sheet{
-  border-radius:26px 26px 0 0;border:1px solid var(--hair);border-bottom:none;
-  box-shadow:0 -18px 48px -20px rgba(40,30,20,.45);padding:12px 16px calc(20px + env(safe-area-inset-bottom));
-}
-.grab{width:40px;height:4px;background:#e2d6c6}
-.acts button,.acts a{border-radius:14px;padding:12px 6px;transition:.15s;border:1px solid var(--line)}
-.acts button:active,.acts a:active{transform:scale(.98)}
-.acts .prim{box-shadow:0 8px 16px -10px rgba(14,106,136,.9)}
-.near a{padding:7px 12px;border:1px solid var(--line);background:#fbf7f2}
-.slist{padding:11px 2px;border-radius:12px;transition:background .15s}
-.slist:hover{background:#fbf7f2}
-
-/* ---------- 9. ナビ・トースト・モーダル ---------- */
-nav{
-  background:rgba(255,255,255,.86);
-  -webkit-backdrop-filter:saturate(1.6) blur(16px);backdrop-filter:saturate(1.6) blur(16px);
-  border-top:1px solid var(--hair);
-  padding:8px 6px calc(10px + env(safe-area-inset-bottom));
-  box-shadow:0 -10px 28px -22px rgba(60,45,35,.8);
-}
-nav button{margin:0 3px;border-radius:15px;padding:7px 0;font-size:10px;gap:3px;transition:.18s}
-nav button i{font-size:20px;transition:transform .22s cubic-bezier(.2,1.4,.4,1)}
-nav button.on{background:var(--sea-soft)}
-nav button.on i{transform:translateY(-1px) scale(1.1)}
-#toast{
-  background:rgba(38,32,27,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  padding:11px 20px;box-shadow:var(--e3);
-}
-#modal{background:rgba(38,28,20,.48);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
-#modalin{border-radius:26px 26px 0 0;box-shadow:0 -18px 48px -20px rgba(40,30,20,.5)}
-.tel{padding:11px 0}
-.big{border-radius:18px;box-shadow:0 10px 20px -12px rgba(190,70,55,.9)}
-#sos{
-  width:56px;height:56px;border-radius:20px;font-size:11px;
-  box-shadow:0 10px 22px -10px rgba(214,90,76,.75);transition:transform .15s;
-}
-#sos:active{transform:scale(.94)}
-#offbar{background:#4d5c68;padding:6px;letter-spacing:.03em}
-
-/* ---------- 10. ミニゲーム導線 ---------- */
-.gamepill{
-  margin-left:8px;text-decoration:none;color:#fff;
-  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
-}
-.gamecard{
-  display:flex;align-items:center;gap:13px;text-decoration:none;color:#fff;
-  margin:16px 0 4px;padding:16px;border-radius:var(--r);
-  background:linear-gradient(135deg,#7b6bd6 0%,#5f7fdc 55%,#3fa8c9 100%);
-  box-shadow:0 16px 32px -18px rgba(70,60,150,.85);
-  transition:transform .15s cubic-bezier(.2,.8,.3,1),box-shadow .2s;
-  position:relative;overflow:hidden;
-}
-.gamecard:before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(300px 120px at 90% -20%,rgba(255,255,255,.3),transparent 70%);
-}
-.gamecard:active{transform:scale(.985);box-shadow:0 8px 18px -14px rgba(70,60,150,.9)}
-.gamecard .gc-ic{font-size:30px;line-height:1;filter:drop-shadow(0 2px 4px rgba(0,0,0,.25))}
-.gamecard .gc-tx{flex:1;min-width:0;display:block}
-.gamecard .gc-tx b{display:block;font-size:15.5px;font-weight:800;letter-spacing:.01em}
-.gamecard .gc-tx i{display:block;font-style:normal;font-size:11.5px;opacity:.85;margin-top:2px}
-.gamecard .gc-go{
-  flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
-  background:rgba(255,255,255,.22);font-size:12px;
-}
-
-/* ---------- 11. モーション配慮 ---------- */
-@media (prefers-reduced-motion:reduce){
-  *{transition-duration:.01ms!important;animation-duration:.01ms!important}
-}
-</style>
-
-<script>
-(function(){
-  var GAME='https://iwamotoco-source.github.io/sontyo/';
-
-  /* 地図の丸ボタン5個を1つのドックにまとめる（イベントはそのまま） */
-  (function(){
-    var wrap=document.getElementById('mapwrap');
-    if(!wrap||document.getElementById('mdock'))return;
-    var d=document.createElement('div'); d.id='mdock';
-    ['btnLoc','btnTile','btnRoute','btnList','btnCam'].forEach(function(id){
-      var b=document.getElementById(id); if(b) d.appendChild(b);
-    });
-    wrap.appendChild(d);
-  })();
-
-  /* ヘッダーにミニゲームのピル */
-  (function(){
-    var hd=document.querySelector('header .wrap');
-    if(!hd||document.getElementById('gamepill'))return;
-    var a=document.createElement('a');
-    a.id='gamepill'; a.className='count gamepill';
-    a.href=GAME; a.target='_blank'; a.rel='noopener';
-    a.textContent='🎮 ミニゲーム';
-    hd.appendChild(a);
-  })();
-
-  /* しおり／その他タブの末尾にミニゲームカード */
-  function gameCard(){
-    return '<a class="gamecard" href="'+GAME+'" target="_blank" rel="noopener">'
-      +'<span class="gc-ic">🎮</span>'
-      +'<span class="gc-tx"><b>おまけ：ミニゲーム</b>'
-      +'<i>移動中のヒマつぶしに。別タブで開きます</i></span>'
-      +'<span class="gc-go">▶</span></a>';
-  }
-  function inject(){
-    var v=document.getElementById('view');
-    if(!v||v.querySelector('.gamecard'))return;
-    if(S.tab==='plan'||S.tab==='more') v.insertAdjacentHTML('beforeend',gameCard());
-  }
-  var _render=window.render;
-  window.render=function(){ _render.apply(this,arguments); try{inject();}catch(e){} };
-  render();
-})();
-</script>
-<!-- ============ UI Pro Pack（ここまで） ============ -->
-
-
-<style id="sf-css">
-html{scroll-behavior:auto!important}
-html,body,#view,main{overflow-anchor:none}
-*{scroll-margin-top:0!important;scroll-margin-bottom:0!important}
-</style>
-<script id="sf-js">
-(function(){
-if(window.__scrollFix)return;window.__scrollFix=1;
-
-try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
-
-var _focus=HTMLElement.prototype.focus;
-HTMLElement.prototype.focus=function(o){
-  try{var p={preventScroll:true};if(o)for(var k in o)p[k]=o[k];return _focus.call(this,p);}
-  catch(e){return _focus.call(this);}
-};
-
-var _siv=Element.prototype.scrollIntoView;
-Element.prototype.scrollIntoView=function(a){
-  if(window.__sfLock)return;
-  var o=(a===true)?{block:'start'}:(a&&typeof a==='object'?a:{});
-  var p={block:'nearest',inline:'nearest',behavior:'auto'};
-  for(var k in o)p[k]=o[k];
-  return _siv.call(this,p);
-};
-
-var docEl=document.scrollingElement||document.documentElement;
-var until=0,raf=0,target=0;
-function y(){return window.pageYOffset||docEl.scrollTop||0;}
-function pin(){
-  if(Date.now()>until){window.__sfLock=0;raf=0;return;}
-  if(Math.abs(y()-target)>1)window.scrollTo(0,target);
-  raf=requestAnimationFrame(pin);
-}
-function lock(ms,to){
-  target=to||0;until=Date.now()+(ms||450);window.__sfLock=1;
-  window.scrollTo(0,target);
-  if(!raf)raf=requestAnimationFrame(pin);
-}
-function release(){until=0;window.__sfLock=0;}
-['touchstart','wheel','keydown','pointerdown','mousedown'].forEach(function(ev){
-  window.addEventListener(ev,release,{passive:true,capture:true});
-});
-window.__sfLock=0;window.__sfLockScroll=lock;
-
-function snap(){
-  var el=document.activeElement;
-  if(!el||el===document.body)return null;
-  if(!/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))return null;
-  var s={id:el.id||'',act:el.getAttribute('data-act')||'',k:el.getAttribute('data-k')||'',
-         did:el.getAttribute('data-id')||'',ss:null,se:null};
-  try{s.ss=el.selectionStart;s.se=el.selectionEnd;}catch(e){}
-  return s;
-}
-function restore(s){
-  if(!s)return;
-  var el=null;
-  if(s.id)el=document.getElementById(s.id);
-  if(!el&&s.act){
-    var q='[data-act="'+s.act+'"]';
-    if(s.did)q+='[data-id="'+s.did+'"]';
-    if(s.k)q+='[data-k="'+s.k+'"]';
-    try{el=document.querySelector(q);}catch(e){}
-  }
-  if(!el)return;
-  try{el.focus({preventScroll:true});
-      if(s.ss!=null&&el.setSelectionRange)el.setSelectionRange(s.ss,s.se);}catch(e){}
-}
-
-function wrap(){
-  if(typeof window.render!=='function'||window.render.__sf)return false;
-  var orig=window.render;
-  var w=function(){
-    var s=snap();
-    var r=orig.apply(this,arguments);
-    lock(480,0);
-    restore(s);
-    return r;
-  };
-  w.__sf=1;window.render=w;return true;
-}
-if(!wrap()){var n=0,t=setInterval(function(){if(wrap()||++n>80)clearInterval(t);},50);}
-
-if(window.MutationObserver){
-  var v=document.getElementById('view');
-  if(v)new MutationObserver(function(){lock(420,0);}).observe(v,{childList:true});
-  var sp=document.getElementById('splash');
-  if(sp)new MutationObserver(function(){
-    if(sp.classList.contains('out')||sp.style.display==='none')lock(700,0);
-  }).observe(sp,{attributes:true,attributeFilter:['class','style']});
-}
-window.addEventListener('load',function(){lock(700,0);},{once:true});
-lock(900,0);
-})();
-</script>
-
-</body></html>
+})();</script></body></html>
